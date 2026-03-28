@@ -34,28 +34,30 @@ This application allows users to convert numbers between binary, octal, decimal,
 
 After running the program, choose the input number system from the menu, enter the value, and select the target system for conversion.
 
-Example:
+### Example
 
-—THE CONVERTER—
+```text
+---THE CONVERTER---
 
 1 - BINARY
 2 - OCTAL
 3 - DECIMAL
 4 - HEXADECIMAL
 0 - EXIT
-```
-1
-```
+
+> 1
+
 Enter a number: 1010
 
-Binary to…
+Binary to...
 1 - OCTAL
 2 - DECIMAL
 3 - HEXADECIMAL
-```
-2
-```
+
+> 2
+
 Result: 10
+```
 
 ## Author
 
