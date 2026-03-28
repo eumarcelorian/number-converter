@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class converter {
+public class Converter {
 
     static int binaryToDecimal(String binary) {
 
