@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Converter {
 
-    static int binaryToDecimal(String binary) {
+    private static int binaryToDecimal(String binary) {
 
         int decimal = 0;
 
@@ -16,7 +16,7 @@ public class Converter {
         return decimal;
     }
 
-    static String decimalToBinary(int num) {
+    private static String decimalToBinary(int num) {
 
         if (num == 0) return "0";
 
@@ -30,37 +30,47 @@ public class Converter {
         return binary;
     }
 
-    static String decimalToOctal(int num) {
+    private static String decimalToOctal(int num) {
         return Integer.toOctalString(num);
         /*Descobrir que a classe Integer existia enquanto desenvolvia esse projeto. Facilitou bastante.*/
     }
 
-    static String decimalToHex(int num) {
+    private static String decimalToHex(int num) {
         return Integer.toHexString(num).toUpperCase();
     }
 
-    static int octalToDecimal(String octal) {
+    private static int octalToDecimal(String octal) {
         return Integer.parseInt(octal, 8);
     }
 
-    static int hexToDecimal(String hex) {
+    private static int hexToDecimal(String hex) {
         return Integer.parseInt(hex, 16);
     }
 
-    static boolean isBinary(String value) {
+    private static boolean isBinary(String value) {
         return value.matches("[01]+");
     }
 
-    static boolean isOctal(String value) {
+    private static boolean isOctal(String value) {
         return value.matches("[0-7]+");
     }
 
-    static boolean isDecimal(String value) {
+    private static boolean isDecimal(String value) {
         return value.matches("[0-9]+");
     }
 
-    static boolean isHex(String value) {
+    private static boolean isHex(String value) {
         return value.matches("[0-9A-Fa-f]+");
+    }
+
+    private static int readInt(Scanner scan) {
+        while (true) {
+            try {
+                return Integer.parseInt(scan.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.print("Invalid input. Enter a number: ");
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -76,7 +86,7 @@ public class Converter {
                     "3 - DECIMAL\n" +
                     "4 - HEXADECIMAL\n" +
                     "> ");
-            int choice = Integer.parseInt(scan.nextLine());
+            int choice =  readInt(scan);
 
             switch (choice) {
                 case 1:
@@ -92,7 +102,7 @@ public class Converter {
                             "2 - DECIMAL\n" +
                             "3 - HEXADECIMAL\n" +
                             "> ");
-                    int case_one_choice = Integer.parseInt(scan.nextLine());
+                    int case_one_choice = readInt(scan);
 
                     if (case_one_choice == 1) {
                         System.out.println("Result: " + decimalToOctal(binaryToDecimal(binary)));
@@ -117,7 +127,7 @@ public class Converter {
                             "2 - DECIMAL\n" +
                             "3 - HEXADECIMAL\n" +
                             "> ");
-                    int case_two_choice = Integer.parseInt(scan.nextLine());
+                    int case_two_choice = readInt(scan);
 
                     if (case_two_choice == 1) {
                         System.out.println("Result: " + decimalToBinary((octalToDecimal(octal))));
@@ -144,7 +154,7 @@ public class Converter {
                             "2 - OCTAL\n" +
                             "3 - HEXADECIMAL\n" +
                             "> ");
-                    int case_three_choice = Integer.parseInt(scan.nextLine());
+                    int case_three_choice = readInt(scan);
 
                     if (case_three_choice == 1) {
                         System.out.println("Result: " + decimalToBinary(decimal));
@@ -168,7 +178,7 @@ public class Converter {
                             "2 - OCTAL\n" +
                             "3 - DECIMAL\n" +
                             "> ");
-                    int case_four_choice = Integer.parseInt(scan.nextLine());
+                    int case_four_choice = readInt(scan);
 
                     if (case_four_choice == 1) {
                         System.out.println("Result: " + decimalToBinary((hexToDecimal(hex_decimal))));
